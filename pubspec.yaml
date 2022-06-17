@@ -38,6 +38,8 @@ dependencies:
       path: envify
   flutter:
     sdk: flutter
+  http: ^0.13.4
+  json_serializable: ^6.2.0
 
 dev_dependencies:
   build_runner: ^2.0.4
