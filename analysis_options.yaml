@@ -8,6 +8,8 @@ analyzer:
     - test/resources/unused_code_analyzer/generated/**
     - test/resources/file_path_folder/**
     - test/**/examples/**
+    - "**/*.g.dart"
+
   language:
     strict-inference: true
     strict-raw-types: true
@@ -15,7 +17,7 @@ analyzer:
     - dart_code_metrics
   strong-mode:
     implicit-casts: false
-    implicit-dynamic: false
+    # implicit-dynamic: false
 
 dart_code_metrics:
   anti-patterns:
@@ -46,6 +48,7 @@ dart_code_metrics:
     - test/src/utils/**
     - test/resources/*
     - test/*
+    - "**/*.g.dart"
   rules:
     - avoid-collection-methods-with-unrelated-types
     - avoid-dynamic:
@@ -66,7 +69,7 @@ dart_code_metrics:
     - no-empty-block
     - no-equal-then-else
     - no-object-declaration
-    - prefer-async-await
+    # - prefer-async-await
     - prefer-conditional-expressions
     - prefer-correct-identifier-length:
         exceptions:
@@ -128,7 +131,7 @@ linter:
     - conditional_uri_does_not_exist
     - depend_on_referenced_packages
     - deprecated_consistency
-    - diagnostic_describe_all_properties
+    # - diagnostic_describe_all_properties
     - directives_ordering
     - do_not_use_environment
     - eol_at_end_of_file
