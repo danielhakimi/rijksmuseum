@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 
 import '../enums/notifier_state.dart';
+import '../extensions/task_extension.dart';
 import '../models/art_objects.dart';
 import '../models/response_failure.dart';
 import '../services/museum_data_service.dart';
@@ -86,10 +87,4 @@ class HomePageProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
-}
-
-extension TaskEx<T> on Task<T> {
-  Future<Either<ResponseFailure, T>> unwrapResponse() => attempt()
-      .map((either) => either.leftMap((l) => l as ResponseFailure))
-      .run();
 }

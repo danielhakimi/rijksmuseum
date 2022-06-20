@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 
 import '../models/art_objects.dart';
 import '../providers/home_page_provider.dart';
-import '../screens/details_page.dart';
+
+import 'height_spacer.dart';
+import 'hero_image.dart';
 import 'list_item_description.dart';
 
 class ListItem extends StatelessWidget {
@@ -36,9 +38,7 @@ class ListItem extends StatelessWidget {
                         height: 100,
                         width: 100,
                       ),
-                    Expanded(
-                      child: ListItemDescription(artItem: item),
-                    ),
+                    Expanded(child: ListItemDescription(artItem: item)),
                   ],
                 ),
                 const HeightSpacer(),

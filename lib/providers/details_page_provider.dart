@@ -2,10 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import '../enums/notifier_state.dart';
 
+import '../extensions/task_extension.dart';
 import '../models/art_objects.dart';
 import '../models/response_failure.dart';
 import '../services/museum_data_service.dart';
-import 'home_page_provider.dart';
 
 class DetailsPageProvider extends ChangeNotifier {
   MuseumDataService dataService;
