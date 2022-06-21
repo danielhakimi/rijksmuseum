@@ -20,7 +20,7 @@ class HeroImage extends StatelessWidget {
         tag: objectNumber ?? '',
         child: CachedNetworkImage(
           imageUrl: imageUrl ?? '',
-          height: height,
+          height: height ?? (MediaQuery.of(context).size.height * 0.5),
           width: width,
           memCacheHeight: (MediaQuery.of(context).size.height * 0.7).toInt(),
           fit: BoxFit.cover,

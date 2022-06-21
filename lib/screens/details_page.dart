@@ -55,10 +55,6 @@ class _DetailsPageState extends State<DetailsPage> {
               item: r,
             ),
           ),
-          // provider.artItem.foldRight(
-          //   Container(),
-          //   (r, _) => ItemDetailsInformation(item: r),
-          // ),
         ],
       ),
     );
