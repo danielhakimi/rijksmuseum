@@ -9,6 +9,7 @@ analyzer:
     - test/resources/file_path_folder/**
     - test/**/examples/**
     - "**/*.g.dart"
+    - "**/*.mocks.dart"
 
   language:
     strict-inference: true

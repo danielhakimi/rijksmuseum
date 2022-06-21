@@ -30,7 +30,7 @@ class RijksmuseumApp extends StatelessWidget {
           builder: (ctx, _) {
             final selectedItemOption =
                 ctx.select<HomePageProvider, Option<ArtObjects>>(
-              (value) => value.selectedArtItem,
+              (value) => value.selectedOptionItem,
             );
             final selectedItem = selectedItemOption.get(ArtObjects.new);
 

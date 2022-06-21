@@ -32,7 +32,7 @@ class HomePageProvider extends ChangeNotifier {
   Either<ResponseFailure, List<ArtObjects>> get items => _items;
   Either<ResponseFailure, List<ArtObjects>> _items = const Right([]);
 
-  Option<ArtObjects> selectedArtItem = none();
+  Option<ArtObjects> selectedOptionItem = none();
 
   Future<void> getFirstPage() async {
     state = NotifierState.loading;
@@ -76,13 +76,13 @@ class HomePageProvider extends ChangeNotifier {
   }
 
   void resetSelectedItem() {
-    selectedArtItem = none();
+    selectedOptionItem = none();
     notifyListeners();
   }
 
   void onItemTapped({ArtObjects? artItem}) {
     if (artItem != null) {
-      selectedArtItem = some(artItem);
+      selectedOptionItem = some(artItem);
 
       notifyListeners();
     }
