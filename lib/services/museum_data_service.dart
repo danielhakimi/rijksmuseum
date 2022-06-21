@@ -6,7 +6,7 @@ import 'package:http/http.dart';
 
 import '../api/endpoints.dart';
 import '../models/collection.dart';
-import '../models/details_collection.dart';
+import '../models/collection_details.dart';
 import '../models/response_failure.dart';
 
 class MuseumDataService {
@@ -15,7 +15,7 @@ class MuseumDataService {
   MuseumDataService(this.client);
 
   Future<Collection> getCollection(int page) async => client
-      .get(Uri.parse('$collection&p=$page&culture=en'))
+      .get(Uri.parse('$collection&p=$page'))
       .then(
         (value) => Collection.fromJson(
           jsonDecode(value.body) as Map<String, dynamic>,
@@ -24,13 +24,13 @@ class MuseumDataService {
       // .then((value) => throw ResponseFailure("something went wrong"))
       .onError((error, _) => throw onError(error));
 
-  Future<DetailsCollection> getCollectionDetails({
+  Future<CollectionDetails> getCollectionDetails({
     required String objectNumber,
   }) async =>
       client
           .get(Uri.parse(collectionDetails(objectNumber: objectNumber)))
           .then(
-            (value) => DetailsCollection.fromJson(
+            (value) => CollectionDetails.fromJson(
               jsonDecode(value.body) as Map<String, dynamic>,
             ),
           )

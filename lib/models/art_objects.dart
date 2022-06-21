@@ -30,4 +30,6 @@ class ArtObjects {
 
   factory ArtObjects.fromJson(Map<String, dynamic> json) =>
       _$ArtObjectsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ArtObjectsToJson(this);
 }
