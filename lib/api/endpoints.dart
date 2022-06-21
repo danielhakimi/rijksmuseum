@@ -1,5 +1,6 @@
 import '../envify/env.dart';
 
-const String collection = '${Env.apiUrl}/collection?key=${Env.apiToken}';
+const String apiUrl = 'https://www.rijksmuseum.nl/api/nl';
+const String collection = '$apiUrl/collection?key=${Env.apiToken}';
 String collectionDetails({required String objectNumber}) =>
-    '${Env.apiUrl}/collection/$objectNumber?key=${Env.apiToken}';
+    '$apiUrl/collection/$objectNumber?key=${Env.apiToken}';
