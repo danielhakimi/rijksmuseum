@@ -27,7 +27,7 @@ void main() {
         when(mockMuseumDataService.getCollection(1)).thenAnswer(
           (realInvocation) => Future.value(
             Collection(
-              artObjects: [ArtObjects(id: "123")],
+              artObjects: [ArtObjects(id: '123')],
             ),
           ),
         );
