@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:rijksmuseum/api/endpoints.dart';
 import 'package:rijksmuseum/enums/notifier_state.dart';
 import 'package:rijksmuseum/models/art_objects.dart';
 import 'package:rijksmuseum/models/collection.dart';
@@ -16,7 +15,6 @@ import 'home_page_provider_test.mocks.dart';
 void main() {
   final mockClient = MockClient();
   final mockMuseumDataService = MockMuseumDataService();
-  final sut = HomePageProvider(mockMuseumDataService);
 
   group('Home page provider tests -', () {
     test('selected item should initially have no value', () {
@@ -33,6 +31,8 @@ void main() {
             ),
           ),
         );
+        final sut = HomePageProvider(mockMuseumDataService);
+
         await sut.getFirstPage();
         expect(sut.state, NotifierState.loaded);
       },
@@ -47,6 +47,8 @@ void main() {
             ),
           ),
         );
+        final sut = HomePageProvider(mockMuseumDataService);
+
         await sut.getFirstPage();
         final result = sut.items.foldRight(<ArtObjects>[], (r, _) => r.length);
         expect(result, 2);
