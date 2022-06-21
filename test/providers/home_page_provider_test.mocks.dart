@@ -100,6 +100,9 @@ class MockHomePageProvider extends _i1.Mock implements _i9.HomePageProvider {
           Invocation.setter(#selectedOptionItem, _selectedOptionItem),
           returnValueForMissingStub: null);
   @override
+  int get page =>
+      (super.noSuchMethod(Invocation.getter(#page), returnValue: 0) as int);
+  @override
   _i11.NotifierState get state => (super.noSuchMethod(Invocation.getter(#state),
       returnValue: _i11.NotifierState.inital) as _i11.NotifierState);
   @override

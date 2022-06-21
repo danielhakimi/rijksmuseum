@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 import '../extensions/art_object_string_extension.dart';
@@ -28,7 +29,7 @@ class ListItemDescription extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            artItem?.buildTitle() ?? '',
+            catching(() => artItem?.buildTitle() ?? '').getOrElse(() => ''),
             style: textTheme.caption,
           ),
         ],
