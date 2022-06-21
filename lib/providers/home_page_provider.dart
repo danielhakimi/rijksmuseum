@@ -14,6 +14,7 @@ class HomePageProvider extends ChangeNotifier {
   HomePageProvider(this.museumDataService);
 
   int _page = 1;
+  int get page => _page;
 
   NotifierState _state = NotifierState.inital;
   NotifierState get state => _state;
