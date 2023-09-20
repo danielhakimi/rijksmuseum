@@ -10,7 +10,9 @@ YOUR_API_KEY should be the API for https://data.rijksmuseum.nl/object-metadata/a
 
 Next, run:
  flutter clean
+ 
  flutter pub get
+ 
  flutter packages pub run build_runner build --delete-conflicting-outputs
 
 no problems should be showing and you should be able to run the app on a device or emulator
