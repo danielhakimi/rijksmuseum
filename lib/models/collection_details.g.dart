@@ -8,7 +8,7 @@ part of 'collection_details.dart';
 
 CollectionDetails _$CollectionDetailsFromJson(Map<String, dynamic> json) =>
     CollectionDetails(
-      elapsedMilliseconds: json['elapsedMilliseconds'] as int?,
+      elapsedMilliseconds: (json['elapsedMilliseconds'] as num?)?.toInt(),
       artObject: ArtObjects.fromJson(json['artObject'] as Map<String, dynamic>),
     );
 

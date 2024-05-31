@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/art_objects.dart';
 import '../providers/details_page_provider.dart';
 import '../widgets/height_spacer.dart';
 import '../widgets/hero_image.dart';
-import '../widgets/item_details_information.dart';
 
 class DetailsPage extends StatefulWidget {
   final String? imageUrl;
 
   const DetailsPage({
-    Key? key,
+    super.key,
     required this.objectNumber,
     required this.imageUrl,
-  }) : super(key: key);
+  });
   final String? objectNumber;
 
   @override
@@ -35,28 +35,46 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<DetailsPageProvider>();
+    final artObject = provider.artItem.getOrElse(ArtObjects.new);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          provider.artItem.fold<String>((l) => '', (r) => r.title ?? ''),
-        ),
-      ),
-      body: ListView(
-        children: [
-          HeroImage(
-            objectNumber: widget.objectNumber,
-            imageUrl: widget.imageUrl,
+        body: CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          leading: IconButton(
+            icon: Icon(Icons.adaptive.arrow_back, color: Theme.of(context).scaffoldBackgroundColor),
+            onPressed: () => Navigator.of(context).pop(),
           ),
-          const HeightSpacer(),
-          provider.artItem.fold(
-            (l) => Text(l.message),
-            (r) => ItemDetailsInformation(
-              item: r,
+          expandedHeight: 300,
+          stretch: true,
+          flexibleSpace: FlexibleSpaceBar(
+            background: HeroImage(
+              objectNumber: widget.objectNumber,
+              imageUrl: widget.imageUrl,
             ),
           ),
-        ],
-      ),
-    );
+        ),
+        const SliverToBoxAdapter(child: HeightSpacer()),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              artObject.title ?? '',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+        ),
+        const SliverToBoxAdapter(child: HeightSpacer(height: 8)),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              artObject.description ?? '',
+            ),
+          ),
+        ),
+      ],
+    ));
   }
 }

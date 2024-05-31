@@ -12,13 +12,13 @@ import 'screens/home_page.dart';
 import 'services/museum_data_service.dart';
 
 class RijksmuseumApp extends StatelessWidget {
-  RijksmuseumApp({Key? key}) : super(key: key);
+  RijksmuseumApp({super.key});
   final heroController = HeroController();
 
   @override
   Widget build(BuildContext context) => MaterialApp(
         theme: ThemeData(
-          appBarTheme: const AppBarTheme(color: Colors.black),
+          appBarTheme: AppBarTheme(color: Colors.black, titleTextStyle: Theme.of(context).primaryTextTheme.headlineSmall),
           progressIndicatorTheme: ProgressIndicatorTheme.of(context).copyWith(
             color: Colors.redAccent.shade700,
           ),
@@ -28,8 +28,7 @@ class RijksmuseumApp extends StatelessWidget {
             MuseumDataService(Client()),
           ),
           builder: (ctx, _) {
-            final selectedItemOption =
-                ctx.select<HomePageProvider, Option<ArtObjects>>(
+            final selectedItemOption = ctx.select<HomePageProvider, Option<ArtObjects>>(
               (value) => value.selectedOptionItem,
             );
             final selectedItem = selectedItemOption.get(ArtObjects.new);

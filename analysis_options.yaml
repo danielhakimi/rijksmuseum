@@ -20,77 +20,6 @@ analyzer:
     implicit-casts: false
     # implicit-dynamic: false
 
-dart_code_metrics:
-  
-  anti-patterns:
-    - long-method:
-      exclude: 
-        - test/**
-    - long-parameter-list
-  metrics:
-    cyclomatic-complexity: 20
-    maintainability-index: 50
-    maximum-nesting: 5
-    number-of-parameters: 5
-    source-lines-of-code: 50
-    technical-debt:
-      threshold: 16
-      todo-cost: 4
-      ignore-cost: 8
-      ignore-for-file-cost: 16
-      as-dynamic-cost: 16
-      deprecated-annotations-cost: 2
-      file-nullsafety-migration-cost: 2
-      unit-type: "hours"
-  metrics-exclude:
-    - test/src/analyzer_plugin/**
-    - test/src/analyzers/**
-    - test/src/cli/**
-    - test/src/config_builder/**
-    - test/src/helpers/**
-    - test/src/reporters/**
-    - test/src/utils/**
-    - test/resources/*
-    - test/*
-    - "**/*.g.dart"
-  rules:
-    - avoid-collection-methods-with-unrelated-types
-    - avoid-dynamic:
-        exclude:
-          - test/**
-    - avoid-global-state
-    - avoid-late-keyword:
-        exclude:
-          - test/**
-    - avoid-missing-enum-constant-in-map
-    - avoid-unnecessary-type-assertions
-    - avoid-unnecessary-type-casts
-    - avoid-unused-parameters
-    - binary-expression-operand-order
-    - double-literal-format
-    - newline-before-return
-    - no-boolean-literal-compare
-    - no-empty-block
-    - no-equal-then-else
-    - no-object-declaration
-    # - prefer-async-await
-    - prefer-conditional-expressions
-    - prefer-correct-identifier-length:
-        exceptions:
-          - id
-          - ok
-    - prefer-correct-type-name:
-        max-length: 44
-    - prefer-first
-    - prefer-last
-    - prefer-match-file-name:
-        exclude:
-          - test/**
-    - prefer-moving-to-variable:
-        exclude:
-          - test/**
-    - prefer-trailing-comma
-
 linter:
   rules:
     - always_declare_return_types
@@ -116,8 +45,6 @@ linter:
     #    - avoid_print
     - avoid_private_typedef_functions
     #    - avoid_redundant_argument_values
-    - avoid_returning_null
-    - avoid_returning_null_for_future
     - avoid_returning_this
     - avoid_setters_without_getters
     - avoid_slow_async_io
@@ -140,7 +67,6 @@ linter:
     - do_not_use_environment
     - eol_at_end_of_file
     - flutter_style_todos
-    - invariant_booleans
     - join_return_with_assignment
     - leading_newlines_in_multiline_strings
     - library_private_types_in_public_api

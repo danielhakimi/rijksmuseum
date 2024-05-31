@@ -9,9 +9,9 @@ import 'loading_indicator.dart';
 
 class ItemDetailsInformation extends StatelessWidget {
   const ItemDetailsInformation({
-    Key? key,
+    super.key,
     required this.item,
-  }) : super(key: key);
+  });
   final ArtObjects item;
 
   @override

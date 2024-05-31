@@ -10,9 +10,9 @@ import 'list_item_description.dart';
 
 class ListItem extends StatelessWidget {
   const ListItem({
-    Key? key,
+    super.key,
     this.item,
-  }) : super(key: key);
+  });
   final ArtObjects? item;
 
   @override

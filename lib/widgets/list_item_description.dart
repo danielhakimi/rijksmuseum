@@ -6,9 +6,9 @@ import '../models/art_objects.dart';
 
 class ListItemDescription extends StatelessWidget {
   const ListItemDescription({
-    Key? key,
+    super.key,
     required this.artItem,
-  }) : super(key: key);
+  });
 
   final ArtObjects? artItem;
 
@@ -30,7 +30,7 @@ class ListItemDescription extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             catching(() => artItem?.buildTitle() ?? '').getOrElse(() => ''),
-            style: textTheme.caption,
+            style: textTheme.bodySmall,
           ),
         ],
       ),

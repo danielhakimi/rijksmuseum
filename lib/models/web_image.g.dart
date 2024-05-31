@@ -8,10 +8,10 @@ part of 'web_image.dart';
 
 WebImage _$WebImageFromJson(Map<String, dynamic> json) => WebImage(
       guid: json['guid'] as String?,
-      offsetPercentageX: json['offsetPercentageX'] as int?,
-      offsetPercentageY: json['offsetPercentageY'] as int?,
-      width: json['width'] as int?,
-      height: json['height'] as int?,
+      offsetPercentageX: (json['offsetPercentageX'] as num?)?.toInt(),
+      offsetPercentageY: (json['offsetPercentageY'] as num?)?.toInt(),
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
       url: json['url'] as String?,
     );
 

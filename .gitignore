@@ -51,3 +51,6 @@ app.*.map.json
 .env.development
 .env.acceptance
 **/env.g.dart
+
+# FVM Version Cache
+.fvm/

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class HeroImage extends StatelessWidget {
   const HeroImage({
-    Key? key,
+    super.key,
     this.objectNumber,
     this.imageUrl,
     this.height,
     this.width,
-  }) : super(key: key);
+  });
 
   final String? objectNumber;
   final String? imageUrl;

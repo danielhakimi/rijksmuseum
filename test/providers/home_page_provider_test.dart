@@ -51,7 +51,7 @@ void main() {
         final sut = HomePageProvider(mockMuseumDataService);
 
         await sut.getFirstPage();
-        final result = sut.items.foldRight(<ArtObjects>[], (r, _) => r.length);
+        final result = sut.items.foldRight(0, (r, _) => r.length);
         expect(result, 2);
       },
     );
@@ -59,8 +59,7 @@ void main() {
     test(
       'items list should not have values if there is an issues fetching the first page',
       () async {
-        when(mockMuseumDataService.getCollection(1))
-            .thenThrow(ResponseFailure('exception error'));
+        when(mockMuseumDataService.getCollection(1)).thenThrow(ResponseFailure('exception error'));
 
         final sut = HomePageProvider(mockMuseumDataService);
         expect(

@@ -1,10 +1,13 @@
 import 'package:flutter/widgets.dart';
 
 class HeightSpacer extends StatelessWidget {
+  final double height;
+
   const HeightSpacer({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+    this.height = 16.0,
+  });
 
   @override
-  Widget build(BuildContext context) => const SizedBox(height: 16);
+  Widget build(BuildContext context) => SizedBox(height: height);
 }

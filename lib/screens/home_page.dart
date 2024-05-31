@@ -8,7 +8,7 @@ import '../widgets/loading_indicator.dart';
 import '../widgets/loading_list_item.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
